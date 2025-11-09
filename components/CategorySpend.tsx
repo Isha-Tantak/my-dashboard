@@ -12,7 +12,10 @@ export default function CategorySpend() {
       .then((res) => res.json())
       .then((data) => {
         console.log("Category Spend API:", data);
-        if (Array.isArray(data)) setData(data);
+        if (Array.isArray(data)){
+            setData(data);
+            console.log(true);
+        } 
       })
       .catch((err) => console.error("Error fetching category spend:", err));
   }, []);
@@ -33,7 +36,7 @@ export default function CategorySpend() {
         <PieChart>
           <Pie
             data={data}
-            dataKey="totalSpend"
+            dataKey="spend"
             nameKey="category"
             cx="50%"
             cy="50%"
