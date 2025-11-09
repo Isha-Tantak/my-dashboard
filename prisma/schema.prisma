@@ -1,0 +1,92 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Vendor {
+  id           Int       @id @default(autoincrement())
+  externalId   String?   @unique
+  name         String
+  address      String?
+  taxId        String?
+  invoices     Invoice[]
+  createdAt    DateTime  @default(now())
+}
+
+model Customer {
+  id          Int      @id @default(autoincrement())
+  externalId  String?  @unique
+  name        String
+  address     String?
+  invoices    Invoice[]
+  createdAt   DateTime @default(now())
+}
+
+model Document {
+  id           Int      @id @default(autoincrement())
+  analyticsId  String?  @unique
+  fileName     String
+  filePath     String?
+  fileSize     Int?
+  fileType     String?
+  status       String?
+  processedAt  DateTime?
+  createdAt    DateTime @default(now())
+
+  // One-to-one relationship with Invoice (Invoice holds FK)
+  invoice      Invoice?
+}
+
+model Invoice {
+  id             Int        @id @default(autoincrement())
+  externalId     String?    @unique
+  invoiceNumber  String?
+  invoiceDate    DateTime?
+  deliveryDate   DateTime?
+  vendorId       Int
+  customerId     Int?
+  subTotal       Float?
+  totalTax       Float?
+  invoiceTotal   Float?
+  currency       String?
+  status         String?
+  createdAt      DateTime   @default(now())
+
+  vendor         Vendor     @relation(fields: [vendorId], references: [id])
+  customer       Customer?  @relation(fields: [customerId], references: [id])
+
+  payments       Payment[]
+  lineItems      LineItem[]
+
+  // Foreign key to Document (only Invoice defines it)
+  documentId     Int?       @unique
+  document       Document?  @relation(fields: [documentId], references: [id])
+}
+
+model LineItem {
+  id          Int      @id @default(autoincrement())
+  invoiceId   Int
+  srNo        Int?
+  description String?
+  quantity    Float?
+  unitPrice   Float?
+  totalPrice  Float?
+  accountCode String?
+  vatRate     Float?
+  invoice     Invoice  @relation(fields: [invoiceId], references: [id])
+}
+
+model Payment {
+  id          Int      @id @default(autoincrement())
+  invoiceId   Int
+  dueDate     DateTime?
+  amount      Float?
+  bankAccount String?
+  createdAt   DateTime @default(now())
+  invoice     Invoice  @relation(fields: [invoiceId], references: [id])
+}
