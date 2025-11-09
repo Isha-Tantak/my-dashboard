@@ -20,3 +20,17 @@ A full-stack analytics dashboard built with **Next.js, Prisma, and Supabase**.
 npm install
 npx prisma generate
 npm run dev
+## ER Diagram / Schema (Text Format)
+
+Vendor (1) ───────< (M) Invoice >─────── (M) LineItem
+      │                        │
+      │                        └─────── (M) Payment
+      │
+      └───────────────────── (1) Customer
+
+Document (1) ───── (0/1) Invoice
+
+Legend:
+(1)  = One
+(M)  = Many
+(0/1) = Zero or One
