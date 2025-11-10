@@ -35,6 +35,3 @@ Legend:
 (M)  = Many
 (0/1) = Zero or One!
 
-#screenshots
-
-<img width="1865" height="967" alt="Screenshot 2025-11-11 005938" src="https://github.com/user-attachments/assets/3b4ae5c7-74a2-49d0-a27a-0e51001a5826" />
