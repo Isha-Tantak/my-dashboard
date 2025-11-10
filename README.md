@@ -37,15 +37,4 @@ Legend:
 
 #screenshots
 
-<img width="1865" height="967" alt="Screenshot 2025-11-11 005938" src="https://github.com/user-attachments/assets/7c1787cc-05de-45ac-9917-cb57620a57f6" />
-
-<img width="1865" height="967" alt="Screenshot 2025-11-11 005938" src="https://github.com/user-attachments/assets/c0dfc7d0-808c-4497-85c7-7a59090bfb00" />
-
-
-<img width="1913" height="950" alt="Screenshot 2025-11-11 005954" src="https://github.com/user-attachments/assets/db39dd2d-c5cb-468b-b7d9-3aeaec6e8f3c" />
-
-
-
-
-<img width="1875" height="695" alt="Screenshot 2025-11-11 010009" src="https://github.com/user-attachments/assets/db9f6812-eae2-4c75-ba49-e611f3008b27" />
-
+<img width="1865" height="967" alt="Screenshot 2025-11-11 005938" src="https://github.com/user-attachments/assets/3b4ae5c7-74a2-49d0-a27a-0e51001a5826" />
