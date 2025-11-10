@@ -9,84 +9,78 @@ datasource db {
 }
 
 model Vendor {
-  id           Int       @id @default(autoincrement())
-  externalId   String?   @unique
-  name         String
-  address      String?
-  taxId        String?
-  invoices     Invoice[]
-  createdAt    DateTime  @default(now())
+  id         Int       @id @default(autoincrement())
+  name       String
+  createdAt  DateTime  @default(now())
+  address    String?
+  externalId String?   @unique
+  taxId      String?
+  invoices   Invoice[]
 }
 
 model Customer {
-  id          Int      @id @default(autoincrement())
-  externalId  String?  @unique
-  name        String
-  address     String?
-  invoices    Invoice[]
-  createdAt   DateTime @default(now())
+  id         Int       @id @default(autoincrement())
+  externalId String?   @unique
+  name       String
+  address    String?
+  createdAt  DateTime  @default(now())
+  invoices   Invoice[]
 }
 
 model Document {
-  id           Int      @id @default(autoincrement())
-  analyticsId  String?  @unique
-  fileName     String
-  filePath     String?
-  fileSize     Int?
-  fileType     String?
-  status       String?
-  processedAt  DateTime?
-  createdAt    DateTime @default(now())
-
-  // One-to-one relationship with Invoice (Invoice holds FK)
-  invoice      Invoice?
+  id          Int       @id @default(autoincrement())
+  analyticsId String?   @unique
+  fileName    String
+  filePath    String?
+  fileSize    Int?
+  fileType    String?
+  status      String?
+  processedAt DateTime?
+  createdAt   DateTime  @default(now())
+  invoice     Invoice?
 }
 
 model Invoice {
-  id             Int        @id @default(autoincrement())
-  externalId     String?    @unique
-  invoiceNumber  String?
-  invoiceDate    DateTime?
-  deliveryDate   DateTime?
-  vendorId       Int
-  customerId     Int?
-  subTotal       Float?
-  totalTax       Float?
-  invoiceTotal   Float?
-  currency       String?
-  status         String?
-  createdAt      DateTime   @default(now())
-
-  vendor         Vendor     @relation(fields: [vendorId], references: [id])
-  customer       Customer?  @relation(fields: [customerId], references: [id])
-
-  payments       Payment[]
-  lineItems      LineItem[]
-
-  // Foreign key to Document (only Invoice defines it)
-  documentId     Int?       @unique
-  document       Document?  @relation(fields: [documentId], references: [id])
+  id            Int        @id @default(autoincrement())
+  invoiceNumber String?
+  vendorId      Int
+  status        String?
+  createdAt     DateTime   @default(now())
+  currency      String?
+  customerId    Int?
+  deliveryDate  DateTime?
+  documentId    Int?       @unique
+  externalId    String?    @unique
+  invoiceDate   DateTime?
+  invoiceTotal  Float?
+  subTotal      Float?
+  totalTax      Float?
+  customer      Customer?  @relation(fields: [customerId], references: [id])
+  document      Document?  @relation(fields: [documentId], references: [id])
+  vendor        Vendor     @relation(fields: [vendorId], references: [id])
+  lineItems     LineItem[]
+  payments      Payment[]
 }
 
 model LineItem {
-  id          Int      @id @default(autoincrement())
+  id          Int     @id @default(autoincrement())
   invoiceId   Int
-  srNo        Int?
   description String?
   quantity    Float?
-  unitPrice   Float?
-  totalPrice  Float?
   accountCode String?
+  srNo        Int?
+  totalPrice  Float?
+  unitPrice   Float?
   vatRate     Float?
-  invoice     Invoice  @relation(fields: [invoiceId], references: [id])
+  invoice     Invoice @relation(fields: [invoiceId], references: [id])
 }
 
 model Payment {
-  id          Int      @id @default(autoincrement())
+  id          Int       @id @default(autoincrement())
   invoiceId   Int
-  dueDate     DateTime?
   amount      Float?
   bankAccount String?
-  createdAt   DateTime @default(now())
-  invoice     Invoice  @relation(fields: [invoiceId], references: [id])
+  createdAt   DateTime  @default(now())
+  dueDate     DateTime?
+  invoice     Invoice   @relation(fields: [invoiceId], references: [id])
 }
