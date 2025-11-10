@@ -1,4 +1,4 @@
-#  Analytics Dashboard + Chat with Data
+<img width="1865" height="967" alt="Screenshot 2025-11-11 005938" src="https://github.com/user-attachments/assets/7c1787cc-05de-45ac-9917-cb57620a57f6" />#  Analytics Dashboard + Chat with Data
 
 A full-stack analytics dashboard built with **Next.js, Prisma, and Supabase**.
 
@@ -33,9 +33,14 @@ Document (1) ───── (0/1) Invoice
 Legend:
 (1)  = One
 (M)  = Many
-(0/1) = Zero or One
-#Screenshots:
-<img width="1865" height="967" alt="Image" src="https://github.com/user-attachments/assets/8e07d18c-e401-4fab-b928-f30e24200dc0" />
-<img width="1913" height="950" alt="Image" src="https://github.com/user-attachments/assets/284375a1-fbb3-4318-9160-fa65dd16488d" />
-<img width="1875" height="695" alt="Image" src="https://github.com/user-attachments/assets/104e280b-2e2d-4344-88e5-44de659371d9" />
-<img width="1840" height="922" alt="Image" src="https://github.com/user-attachments/assets/5ae4fc49-99b7-4f8d-8bc8-bcf7948266e7" />
+(0/1) = Zero or One!
+
+<img width="1865" height="967" alt="Screenshot 2025-11-11 005938" src="https://github.com/user-attachments/assets/c0dfc7d0-808c-4497-85c7-7a59090bfb00" />
+
+<img width="1913" height="950" alt="Screenshot 2025-11-11 005954" src="https://github.com/user-attachments/assets/db39dd2d-c5cb-468b-b7d9-3aeaec6e8f3c" />
+
+
+
+
+<img width="1875" height="695" alt="Screenshot 2025<img width="1840" height="922" alt="Screenshot 2025-11-11 010034" src="https://github.com/user-attachments/assets/bd6193ea-357c-45f3-a48a-d079413bc8bd" />
+-11-11 010009" src="https://github.com/user-attachments/assets/590b7b8f-7564-4ec2-b87a-fbef44fe4787" />
